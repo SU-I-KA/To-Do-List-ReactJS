@@ -1,38 +1,226 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #102a42;
+  background-color: #f1f5f8;
+}
+
+.container {
+  background-color: #fff;
+  height: fit-content;
+  padding: 32px;
+  box-shadow: 0 5px 15px rgb(0 0 0 /10%);
+  margin: auto;
+  margin-top: 128px;
   text-align: center;
+  width: 90vw;
+  max-width: 560px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: capitalize;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.title {
+  padding-bottom: 15px;
+}
+
+form {
+  width: 100%;
+  padding-bottom: 32px;
+}
+
+.entryField {
+  width: 80%;
+  padding: 7px;
+  padding-left: 16px;
+  color: #617d98;
+  background-color: #f1f5f8;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  display: inline-block;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border: transparent;
+  outline: none;
+}
+
+.submitBtn {
+  width: 20%;
+  padding: 7px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  background-color: #a5d5f8;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: transparent;
+  outline: none;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.submitBtn:hover {
+  color: #fff;
+  background-color: #49a6e9;
+}
+
+.toDoList {
+  padding: 10px 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: block;
+  width: 100%;
+  height: fit-content;
+  padding: 4px 16px;
+  transition: all 0.3s linear;
+  position: relative;
+}
+
+li span {
+  color: #617d98;
+  font-size: 17px;
+  width: 88%;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  text-align: left;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+  position: relative;
+  padding-left: 15px;
+}
+
+.complete {
+  text-decoration: line-through;
+  color: #4398c2;
+  transition: all 0.3s linear;
+}
+
+.complete::before {
+  content: '';
+  position: absolute;
+  border-color: #49a6e9;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  /* right: 40px; */
+  left: -8px;
+  top: 3px;
+  transform: rotate(45deg);
+  height: 13px;
+  width: 7px;
+}
+
+.editBtn, .deleteBtn {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  width: 6%;
+  color: #a5d5f8;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  outline: none;
+}
+
+.editBtn:hover, .deleteBtn:hover {
+  color: #49a6e9;
+}
+
+.alert {
+  padding: 5px;
+  font-size: 14px;
+  /* color: #fff; */
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.success {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.danger {
+  background-color: #f2dede;
+  color: #a94442;
+}
+
+.clearAllBtn {
+  color: #e66b6b;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+@media(max-width:480px){
+  .editBtn, .deleteBtn {
+    width: 10%;
+  }
+  li span {
+    font-size: 14px;
+    width: 80%;
+  }
+  .entryField {
+    font-size: 13px;
+    width: 70%;
+  }
+  .submitBtn {
+    font-size: 13px;
+    width: 30%;
+  }
+  .complete::before {
+    height: 12px;
+    width: 5px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media(max-width:380px){
+  body {
+    background: #fff;
   }
-  to {
-    transform: rotate(360deg);
+  .container {
+    width: 100vw;
+    box-shadow: none;
+    margin-top: 100px;
+    padding: 20px 32px;
+  }
+  .title {
+    padding-bottom: 30px;
+  }
+  .entryField {
+    font-size: 13px;
+    width: 100%;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0;
+    text-align: center;
+  }
+  .submitBtn {
+    font-size: 13px;
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+  }
+  .complete::before {
+    height: 12px;
+    width: 5px;
   }
 }
